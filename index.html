@@ -551,12 +551,12 @@ footer{
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
-.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.js .reveal.d1{transition-delay:.1s}.js .reveal.d2{transition-delay:.2s}.js .reveal.d3{transition-delay:.3s}.js .reveal.d4{transition-delay:.4s}
+.js .reveal.visible{opacity:1;transform:translateY(0)}
 
-.reveal-r{opacity:0;transform:translateX(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
-.reveal-r.visible{opacity:1;transform:translateX(0)}
+.js .reveal-r{opacity:0;transform:translateX(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
+.js .reveal-r.visible{opacity:1;transform:translateX(0)}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:860px){
@@ -906,6 +906,9 @@ footer{
 </footer>
 
 <script>
+// ── Enable JS-gated animations ──
+document.documentElement.classList.add('js');
+
 // ── Hamburger / menu ──
 const btn = document.getElementById('hamburger');
 const menu = document.getElementById('mobile-menu');
