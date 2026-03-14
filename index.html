@@ -328,42 +328,21 @@ h2 em{font-style:italic;color:var(--gold)}
   overflow:hidden;
   border:1px solid rgba(184,148,90,.15);
   box-shadow:0 4px 24px rgba(26,20,16,.05);
-  position:relative;
   transition:
-    transform .5s cubic-bezier(.22,1,.36,1),
-    box-shadow .5s cubic-bezier(.22,1,.36,1),
-    border-color .4s ease;
+    transform .45s cubic-bezier(.22,1,.36,1),
+    box-shadow .45s cubic-bezier(.22,1,.36,1),
+    border-color .35s ease;
   cursor:pointer;
 }
-
-/* shimmer sweep on hover */
-.listing-card::before{
-  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.18) 50%,transparent 70%);
-  transform:translateX(-100%);
-  transition:transform .7s ease;
-}
-.listing-card:hover::before{transform:translateX(100%)}
-
-/* gold border glow */
-.listing-card::after{
-  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  border-radius:3px;
-  box-shadow:inset 0 0 0 1px rgba(184,148,90,0);
-  transition:box-shadow .5s ease;
-}
-.listing-card:hover::after{box-shadow:inset 0 0 0 1.5px rgba(184,148,90,.55)}
-
 .listing-card:hover{
-  transform:translateY(-8px) scale(1.01);
-  box-shadow:0 24px 60px rgba(184,148,90,.18),0 8px 20px rgba(26,20,16,.08);
-  border-color:rgba(184,148,90,.35);
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(184,148,90,.15),0 6px 16px rgba(26,20,16,.07);
+  border-color:rgba(184,148,90,.4);
 }
 
 .listing-card-header{
   padding:1.1rem 1.4rem .6rem;
   display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;
-  position:relative;z-index:3;
 }
 .listing-city{
   font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;
@@ -386,16 +365,7 @@ h2 em{font-style:italic;color:var(--gold)}
 .listing-embed{position:relative;z-index:3}
 .listing-embed .airbnb-embed-frame{width:100%!important;margin:0!important;display:block}
 
-.listing-footer{
-  padding:.7rem 1.4rem 1rem;
-  display:flex;align-items:center;gap:.5rem;
-  font-size:.67rem;letter-spacing:.1em;color:var(--ink-soft);
-  border-top:1px solid rgba(184,148,90,.1);
-  position:relative;z-index:3;
-  transition:color .3s ease;
-}
-.listing-card:hover .listing-footer{color:var(--gold)}
-.listing-footer svg{width:13px;height:13px;color:var(--gold);flex-shrink:0}
+
 
 /* ─── ABOUT ─── */
 #about{
@@ -516,9 +486,10 @@ h2 em{font-style:italic;color:var(--gold)}
 .consult-list li::before{content:'◆';font-size:.3rem;color:var(--gold);flex-shrink:0;margin-top:.5rem}
 
 .calendly-wrap{
-  background:var(--ivory);border-radius:3px;overflow:hidden;
-  box-shadow:0 30px 80px rgba(26,20,16,.09),0 4px 20px rgba(184,148,90,.08);
-  border:1px solid rgba(184,148,90,.1);
+  border-radius:3px;
+  overflow:hidden;
+  border:1px solid rgba(184,148,90,.15);
+  box-shadow:0 8px 40px rgba(26,20,16,.07);
 }
 
 /* ─── FOOTER ─── */
@@ -551,12 +522,8 @@ footer{
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeLeft{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:translateX(0)}}
 
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
-.js .reveal.d1{transition-delay:.1s}.js .reveal.d2{transition-delay:.2s}.js .reveal.d3{transition-delay:.3s}.js .reveal.d4{transition-delay:.4s}
-.js .reveal.visible{opacity:1;transform:translateY(0)}
-
-.js .reveal-r{opacity:0;transform:translateX(24px);transition:opacity .85s cubic-bezier(.22,1,.36,1),transform .85s cubic-bezier(.22,1,.36,1)}
-.js .reveal-r.visible{opacity:1;transform:translateX(0)}
+/* reveal: visible always, animate in when .visible is added */
+.reveal, .reveal-r { opacity:1; transform:none; }
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:860px){
@@ -716,11 +683,7 @@ footer{
         <div class="listing-embed">
           <div class="airbnb-embed-frame" data-id="1623377602257621806" data-view="home" data-hide-price="true" style="width:450px;height:300px;margin:auto;"><a href="https://www.airbnb.com/rooms/1623377602257621806?guests=1&adults=1&s=66&source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/1623377602257621806?guests=1&adults=1&s=66&source=embed_widget" rel="nofollow">Rental unit in Phoenix · ★New · 2 bedrooms · 2 beds · 1 bath</a><script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
         </div>
-        <div class="listing-footer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Co-Hosting with Heart Network
         </div>
-      </div>
 
       <!-- Austin -->
       <div class="listing-card reveal d2">
@@ -734,11 +697,7 @@ footer{
         <div class="listing-embed">
           <div class="airbnb-embed-frame" data-id="1406555328793987361" data-view="home" data-hide-price="true" style="width:450px;height:300px;margin:auto;"><a href="https://www.airbnb.com/rooms/1406555328793987361?guests=1&adults=1&s=66&source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/1406555328793987361?guests=1&adults=1&s=66&source=embed_widget" rel="nofollow">Home in Austin · ★4.91 · 3 bedrooms · 4 beds · 2 baths</a><script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
         </div>
-        <div class="listing-footer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Co-Hosting with Heart Network
         </div>
-      </div>
 
       <!-- Dallas -->
       <div class="listing-card reveal d1">
@@ -752,11 +711,7 @@ footer{
         <div class="listing-embed">
           <div class="airbnb-embed-frame" data-id="1566978627120404773" data-view="home" data-hide-price="true" style="width:450px;height:300px;margin:auto;"><a href="https://www.airbnb.com/rooms/1566978627120404773?check_in=2025-12-29&check_out=2026-01-01&guests=1&adults=4&s=66&source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/1566978627120404773?check_in=2025-12-29&check_out=2026-01-01&guests=1&adults=4&s=66&source=embed_widget" rel="nofollow">Rental unit in Dallas · ★4.75 · 1 bedroom · 3 beds · 1 bath</a><script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
         </div>
-        <div class="listing-footer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Co-Hosting with Heart Network
         </div>
-      </div>
 
       <!-- Fort Worth -->
       <div class="listing-card reveal d2">
@@ -770,11 +725,7 @@ footer{
         <div class="listing-embed">
           <div class="airbnb-embed-frame" data-id="1450117388750718331" data-view="home" data-hide-price="true" style="width:450px;height:300px;margin:auto;"><a href="https://www.airbnb.com/rooms/1450117388750718331?guests=1&adults=1&s=66&source=embed_widget">View On Airbnb</a><a href="https://www.airbnb.com/rooms/1450117388750718331?guests=1&adults=1&s=66&source=embed_widget" rel="nofollow">Rental unit in Fort Worth · ★5.0 · 1 bedroom · 2 beds · 1 bath</a><script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script></div>
         </div>
-        <div class="listing-footer">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          Co-Hosting with Heart Network
         </div>
-      </div>
 
     </div>
   </div>
@@ -821,7 +772,7 @@ footer{
     <div class="reveal d2">
       <div class="calendly-wrap">
         <!-- Calendly inline widget begin -->
-        <div class="calendly-inline-widget" data-url="https://calendly.com/quintasdelbosquellc/30min?background_color=f9ceb1&primary_color=ef9423" style="min-width:320px;height:700px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/quintasdelbosquellc/30min?background_color=faf7f2&primary_color=b8945a&text_color=1a1410" style="min-width:320px;height:700px;"></div>
         <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
         <!-- Calendly inline widget end -->
       </div>
@@ -906,9 +857,6 @@ footer{
 </footer>
 
 <script>
-// ── Enable JS-gated animations ──
-document.documentElement.classList.add('js');
-
 // ── Hamburger / menu ──
 const btn = document.getElementById('hamburger');
 const menu = document.getElementById('mobile-menu');
@@ -937,26 +885,6 @@ window.addEventListener('scroll', () => {
   const scrolled = window.scrollY > 60;
   nav.style.height = scrolled ? '58px' : '70px';
   nav.style.background = scrolled ? 'rgba(250,247,242,.97)' : 'rgba(250,247,242,.92)';
-}, {passive:true});
-
-// ── Scroll reveal ──
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      obs.unobserve(e.target);
-    }
-  });
-}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
-
-document.querySelectorAll('.reveal, .reveal-r').forEach(el => obs.observe(el));
-
-// ── Subtle hero parallax ──
-const heroSection = document.getElementById('hero');
-window.addEventListener('scroll', () => {
-  if (window.scrollY < window.innerHeight) {
-    heroSection.style.backgroundPositionY = window.scrollY * 0.3 + 'px';
-  }
 }, {passive:true});
 </script>
 </body>
